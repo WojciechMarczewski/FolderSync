@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "aNdqvjJ/3Xg=",
+  "dgSpecHash": "D5xWMg09VrI=",
   "success": true,
   "projectFilePath": "/home/wojtek/Documents/FolderSync/FolderSync.Tests/FolderSync.Tests.csproj",
   "expectedPackageFiles": [
     "/home/wojtek/.nuget/packages/coverlet.collector/6.0.2/coverlet.collector.6.0.2.nupkg.sha512",
+    "/home/wojtek/.nuget/packages/junitxml.testlogger/6.1.0/junitxml.testlogger.6.1.0.nupkg.sha512",
     "/home/wojtek/.nuget/packages/microsoft.codecoverage/17.12.0/microsoft.codecoverage.17.12.0.nupkg.sha512",
     "/home/wojtek/.nuget/packages/microsoft.extensions.dependencyinjection/9.0.7/microsoft.extensions.dependencyinjection.9.0.7.nupkg.sha512",
     "/home/wojtek/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.7/microsoft.extensions.dependencyinjection.abstractions.9.0.7.nupkg.sha512",

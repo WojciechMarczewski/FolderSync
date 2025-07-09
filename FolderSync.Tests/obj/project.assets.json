@@ -8,6 +8,12 @@
           "build/netstandard2.0/coverlet.collector.targets": {}
         }
       },
+      "JunitXml.TestLogger/6.1.0": {
+        "type": "package",
+        "build": {
+          "build/netstandard2.0/JUnitXml.TestLogger.props": {}
+        }
+      },
       "Microsoft.CodeCoverage/17.12.0": {
         "type": "package",
         "compile": {
@@ -468,6 +474,23 @@
         "coverlet.collector.nuspec"
       ]
     },
+    "JunitXml.TestLogger/6.1.0": {
+      "sha512": "a3ciawoHOzqcry7yS5z9DerNyF9QZi6fEZZJPILSy6Noj6+r8Ydma+cENA6wvivXDCblpXxw72wWT9QApNy/0w==",
+      "type": "package",
+      "path": "junitxml.testlogger/6.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/_common/Microsoft.VisualStudio.TestPlatform.Extension.JUnit.Xml.TestLogger.dll",
+        "build/_common/Spekt.TestLogger.dll",
+        "build/netstandard2.0/JUnitXml.TestLogger.props",
+        "docs/CHANGELOG.md",
+        "docs/README.md",
+        "junitxml.testlogger.6.1.0.nupkg.sha512",
+        "junitxml.testlogger.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "Microsoft.CodeCoverage/17.12.0": {
       "sha512": "4svMznBd5JM21JIG2xZKGNanAHNXplxf/kQDFfLHXQ3OnpJkayRK/TjacFjA+EYmoyuNXHo/sOETEfcYtAzIrA==",
       "type": "package",
@@ -911,6 +934,7 @@
   "projectFileDependencyGroups": {
     "net9.0": [
       "FolderSync >= 1.0.0",
+      "JunitXml.TestLogger >= 6.1.0",
       "Microsoft.NET.Test.Sdk >= 17.12.0",
       "NUnit >= 4.2.2",
       "NUnit.Analyzers >= 4.4.0",
@@ -966,6 +990,10 @@
       "net9.0": {
         "targetAlias": "net9.0",
         "dependencies": {
+          "JunitXml.TestLogger": {
+            "target": "Package",
+            "version": "[6.1.0, )"
+          },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[17.12.0, )"

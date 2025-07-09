@@ -18,14 +18,15 @@ pipeline {
         stage('Test') {
             steps {
                 dir('FolderSync.Tests') {
-                    sh 'dotnet test --configuration Debug --logger "trx;LogFileName=test_results.trx"'
+                    sh 'dotnet test --configuration Debug --logger junit'
                 }
             }
         }
     }
     post {
     always {
-        junit '**/TestResults/*.trx'
+        junit '**/TestResults/*.xml'
     }
 }
+
 }
