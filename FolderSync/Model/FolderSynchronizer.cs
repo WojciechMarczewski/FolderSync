@@ -17,11 +17,25 @@ public class FolderSynchronizer : IFolderSynchronizer
         }
 
         Directory.CreateDirectory(replicaPath);
-
+        SyncDirs(sourcePath, replicaPath);
         SyncFiles(sourcePath, replicaPath);
         DeleteRemovedFiles(sourcePath, replicaPath);
         DeleteRemovedDirectories(sourcePath, replicaPath);
 
+    }
+    private void SyncDirs(string sourcePath, string replicaPath)
+    {
+        var sourceDirs = Directory.GetDirectories(sourcePath, "*", SearchOption.AllDirectories);
+        foreach (var sourceDir in sourceDirs)
+        {
+            string relativePath = Path.GetRelativePath(sourcePath, sourceDir);
+            string replicaDir = Path.Combine(replicaPath, relativePath);
+            if (!Directory.Exists(replicaDir))
+            {
+                Directory.CreateDirectory(replicaDir);
+                // Log: new Directory
+            }
+        }
     }
     private void SyncFiles(string sourcePath, string replicaPath)
     {
