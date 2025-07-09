@@ -18,7 +18,7 @@ pipeline {
         stage('Test') {
             steps {
                 
-                    sh 'dotnet test --configuration Debug --no-build'
+                    sh 'dotnet test --configuration Debug --no-build --verbosity normal'
                 
             }
         }
