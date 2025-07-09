@@ -15,5 +15,12 @@ pipeline {
                 }
             }
         }
+        stage('Test') {
+            steps {
+                dir('FolderSync') {
+                    sh 'dotnet test --configuration Debug --no-build'
+                }
+            }
+        }
     }
 }
