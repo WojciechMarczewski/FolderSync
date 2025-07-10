@@ -5,12 +5,16 @@ namespace Model;
 public class FolderSynchronizer : IFolderSynchronizer
 {
     private readonly IFileHasher _fileHasher;
-    public FolderSynchronizer(IFileHasher fileHasher)
+    private readonly ILogger _logger;
+    public FolderSynchronizer(IFileHasher fileHasher, ILogger logger)
     {
         _fileHasher = fileHasher;
+        _logger = logger;
+        _logger.Log($"Starting synchronization.");
     }
     public void Synchronize(string sourcePath, string replicaPath)
     {
+        
         if (!Directory.Exists(sourcePath))
         {
             throw new DirectoryNotFoundException($"Source directory does not exist: {sourcePath}");
@@ -34,6 +38,7 @@ public class FolderSynchronizer : IFolderSynchronizer
             {
                 Directory.CreateDirectory(replicaDir);
                 // Log: new Directory
+                _logger.Log($"Created new directory ({replicaDir})");
             }
         }
     }
@@ -54,6 +59,7 @@ public class FolderSynchronizer : IFolderSynchronizer
                 Directory.CreateDirectory(dirPath);
                 File.Copy(sourceFile, replicaFile);
                 // Log: New file copied
+                _logger.Log($"Created new file ({replicaFile})");
             }
 
 
@@ -66,6 +72,7 @@ public class FolderSynchronizer : IFolderSynchronizer
                 {
                     File.Copy(sourceFile, replicaFile, overwrite: true);
                     // Log: File overwritten
+                    _logger.Log($"File was overwritten ({replicaFile})");
                 }
             }
         }
@@ -83,6 +90,7 @@ public class FolderSynchronizer : IFolderSynchronizer
             {
                 File.Delete(replicaFile);
                 // Log: File deleted
+                _logger.Log($"Deleted file ({replicaFile})");
             }
         }
     }
@@ -100,6 +108,7 @@ public class FolderSynchronizer : IFolderSynchronizer
             {
                 Directory.Delete(replicaDir, recursive: true);
                 // Log: Directory deleted
+                _logger.Log($"Deleted directory ({replicaDir})");
             }
         }
     }

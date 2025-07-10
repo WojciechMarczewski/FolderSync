@@ -8,15 +8,11 @@ public class App
     private readonly IFolderSynchronizer _folderSynchronizer;
     public App(IFolderSynchronizer folderSynchronizer)
     {
-
         _folderSynchronizer = folderSynchronizer;
-         
     }
-
-
-
     public async Task Run(string sourcePath, string replicaPath, int interval)
     {
+        
         try
         {
             _folderSynchronizer.Synchronize(sourcePath, replicaPath);
