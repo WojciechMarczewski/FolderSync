@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "8DHwi6NMk8w=",
+  "dgSpecHash": "MrynaMCNrP0=",
   "success": true,
   "projectFilePath": "/home/wojtek/Documents/FolderSync/FolderSync/FolderSync.csproj",
   "expectedPackageFiles": [
     "/home/wojtek/.nuget/packages/microsoft.extensions.dependencyinjection/9.0.7/microsoft.extensions.dependencyinjection.9.0.7.nupkg.sha512",
-    "/home/wojtek/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.7/microsoft.extensions.dependencyinjection.abstractions.9.0.7.nupkg.sha512"
+    "/home/wojtek/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.7/microsoft.extensions.dependencyinjection.abstractions.9.0.7.nupkg.sha512",
+    "/home/wojtek/.nuget/packages/system.commandline/2.0.0-beta5.25306.1/system.commandline.2.0.0-beta5.25306.1.nupkg.sha512"
   ],
   "logs": []
 }

@@ -66,6 +66,7 @@ public class E2ESyncTests
     public void New_Subdirectory_And_File_Are_Copied()
     {
         // Arrange
+        _sync.Synchronize(_source, _replica);
         var sourceSubDir = Path.Combine(_source, "subdir");
         Directory.CreateDirectory(sourceSubDir);
         File.WriteAllText(Path.Combine(sourceSubDir, "inner.txt"), "nested content");

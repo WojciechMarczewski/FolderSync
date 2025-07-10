@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "D5xWMg09VrI=",
+  "dgSpecHash": "+bJSkH7Kq6g=",
   "success": true,
   "projectFilePath": "/home/wojtek/Documents/FolderSync/FolderSync.Tests/FolderSync.Tests.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "/home/wojtek/.nuget/packages/nunit/4.2.2/nunit.4.2.2.nupkg.sha512",
     "/home/wojtek/.nuget/packages/nunit.analyzers/4.4.0/nunit.analyzers.4.4.0.nupkg.sha512",
     "/home/wojtek/.nuget/packages/nunit3testadapter/4.6.0/nunit3testadapter.4.6.0.nupkg.sha512",
+    "/home/wojtek/.nuget/packages/system.commandline/2.0.0-beta5.25306.1/system.commandline.2.0.0-beta5.25306.1.nupkg.sha512",
     "/home/wojtek/.nuget/packages/system.reflection.metadata/1.6.0/system.reflection.metadata.1.6.0.nupkg.sha512"
   ],
   "logs": []

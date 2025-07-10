@@ -4,6 +4,7 @@ namespace FolderSync;
 
 public class App
 {
+    private const int defaultInterval = 5;
     private readonly IFolderSynchronizer _folderSynchronizer;
     public App(IFolderSynchronizer folderSynchronizer)
     {
@@ -24,7 +25,7 @@ public class App
         {
             Console.WriteLine($"[ERROR] {ex.Message}");
         }
-
+        if (interval <= 0) interval = defaultInterval;
         Console.WriteLine("Press ESC to stop synchronization...");
         using var timer = new PeriodicTimer(TimeSpan.FromSeconds(interval));
         
