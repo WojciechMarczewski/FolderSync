@@ -27,7 +27,7 @@ pipeline {
         stage('Publish Linux') {
             steps {
                 dir('FolderSync') {
-                    sh 'dotnet publish -c Release -r linux-x64 --self-contained true -o ../publish/linux'
+                    sh 'dotnet publish -c Release -r linux-x64 --self-contained true -o ../publish/linux/foldersync'
                 }
             }
         }
@@ -35,16 +35,25 @@ pipeline {
         stage('Publish Windows') {
             steps {
                 dir('FolderSync') {
-                    sh 'dotnet publish -c Release -r win-x64 --self-contained true -o ../publish/windows'
+                    sh 'dotnet publish -c Release -r win-x64 --self-contained true -o ../publish/windows/foldersync'
                 }
             }
         }
+      stage('Package') {
+            steps {
+                sh '''
+                    zip -r publish/windows/FolderSync-windows.zip -j publish/windows/foldersync
+                    zip -r publish/linux/FolderSync-linux.zip -j publish/linux/foldersync
+                '''
+            }
+        }
+
     }
 
-    post {
+       post {
         always {
             junit '**/TestResults/*.xml'
-            archiveArtifacts artifacts: 'publish/**/*', fingerprint: true
+            archiveArtifacts artifacts: 'publish/**/*.zip', fingerprint: true
         }
     }
 }
