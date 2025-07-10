@@ -15,5 +15,18 @@ pipeline {
                 }
             }
         }
+        stage('Test') {
+            steps {
+                dir('FolderSync.Tests') {
+                    sh 'dotnet test --configuration Debug --logger junit'
+                }
+            }
+        }
     }
+    post {
+    always {
+        junit '**/TestResults/*.xml'
+    }
+}
+
 }
