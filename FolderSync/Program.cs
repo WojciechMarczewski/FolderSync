@@ -33,7 +33,7 @@ class Program
     {
         var serviceProvider = new ServiceCollection()
                 .AddSingleton<IFileHasher, FileHasher>()
-                .AddSingleton<ILogger> (sp => new ConsoleFileLogger(logPath))
+                .AddSingleton<ILogger>(sp => new ConsoleFileLogger(logPath))
                 .AddSingleton<IFolderSynchronizer, FolderSynchronizer>()
                 .AddSingleton<App>()
                 .BuildServiceProvider();
@@ -75,8 +75,8 @@ class Program
                 intervalOption,
                 logOption
             };
-        rootCommand.Description = "Syncs source directory with replica directory to maintain identical copy of source folder";
+        rootCommand.Description = "Synchronizes source directory with replica directory to maintain identical copy of source folder";
         return rootCommand;
 
-    }
+    } 
 }

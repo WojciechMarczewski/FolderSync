@@ -11,7 +11,7 @@ public class ConsoleFileLogger : ILogger
     }
     public void Log(string message)
     {
-        var logMessage = $"({DateTimeOffset.Now:u}) {message}";
+        var logMessage = $"({DateTime.Now}) {message}";
         Console.WriteLine(logMessage);
         File.AppendAllText(_logPath, logMessage + Environment.NewLine);
     }
