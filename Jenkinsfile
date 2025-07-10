@@ -3,10 +3,10 @@ pipeline {
 
     stages {
         stage('Check .NET SDK') {
-        steps {
-            sh 'dotnet --info'
+            steps {
+                sh 'dotnet --info'
+            }
         }
-    }
 
         stage('Build') {
             steps {
@@ -15,6 +15,7 @@ pipeline {
                 }
             }
         }
+
         stage('Test') {
             steps {
                 dir('FolderSync.Tests') {
@@ -22,11 +23,28 @@ pipeline {
                 }
             }
         }
-    }
-    post {
-    always {
-        junit '**/TestResults/*.xml'
-    }
-}
 
+        stage('Publish Linux') {
+            steps {
+                dir('FolderSync') {
+                    sh 'dotnet publish -c Release -r linux-x64 --self-contained true -o ../publish/linux'
+                }
+            }
+        }
+
+        stage('Publish Windows') {
+            steps {
+                dir('FolderSync') {
+                    sh 'dotnet publish -c Release -r win-x64 --self-contained true -o ../publish/windows'
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            junit '**/TestResults/*.xml'
+            archiveArtifacts artifacts: 'publish/**/*', fingerprint: true
+        }
+    }
 }
