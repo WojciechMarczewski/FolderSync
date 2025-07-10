@@ -7,6 +7,7 @@ namespace FolderSync;
 
 class Program
 {
+        private const int defaultInterval = 5;
         static async Task Main(string[] args)
     {
 
@@ -54,7 +55,9 @@ class Program
         var intervalOption = new Option<int>("--interval")
         {
             Description = "Synchronization interval in seconds. Default value is 5 seconds.",
+            DefaultValueFactory = _ =>   defaultInterval
         };
+        
 
         var logOption = new Option<FileInfo>("--log")
         {
