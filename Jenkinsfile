@@ -42,8 +42,8 @@ pipeline {
       stage('Package') {
             steps {
                 sh '''
-                    zip -r publish/windows/FolderSync-windows.zip -j publish/windows/foldersync
-                    zip -r publish/linux/FolderSync-linux.zip -j publish/linux/foldersync
+                    zip -r publish/windows/FolderSync-windows.zip publish/windows/foldersync
+                    zip -r publish/linux/FolderSync-linux.zip publish/linux/foldersync
                 '''
             }
         }
