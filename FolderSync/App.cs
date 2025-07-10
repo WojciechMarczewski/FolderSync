@@ -12,7 +12,7 @@ public class App
     }
     public async Task Run(string sourcePath, string replicaPath, int interval)
     {
-        
+
         try
         {
             _folderSynchronizer.Synchronize(sourcePath, replicaPath);
@@ -20,6 +20,7 @@ public class App
         catch (Exception ex)
         {
             Console.WriteLine($"[ERROR] {ex.Message}");
+            return;
         }
         Console.WriteLine("Press ESC to stop synchronization...");
         using var timer = new PeriodicTimer(TimeSpan.FromSeconds(interval));
